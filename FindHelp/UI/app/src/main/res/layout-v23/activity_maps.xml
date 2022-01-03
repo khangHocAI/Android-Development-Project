@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".MapsActivity" />
+
+
+    </RelativeLayout>
+    <androidx.cardview.widget.CardView
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        map:cardCornerRadius="20dp"
+        android:layout_height="wrap_content">
+        <SearchView
+            android:id="@+id/sr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="#fff"
+            android:focusable="false"
+            android:iconifiedByDefault="false">
+
+        </SearchView>
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/swithButton"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@android:color/transparent"
+            android:onClick="createForm"
+            android:scaleType="fitXY"
+            android:src="@drawable/logo_help"
+            android:text="@string/createform"
+            android:contentDescription="@string/todo" />
+        <LinearLayout
+            android:id="@+id/footer"
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="right"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:backgroundTint="#70CEF8"
+                >
+                <TextView
+                    android:id="@+id/name_of_user"
+                    android:fontFamily="cursive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_margin="8dp"
+                    android:layout_marginEnd="7dp"
+                    android:textColor="#fff"
+                    android:scaleType="fitXY"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textFontWeight="700"
+                    android:text="Welcome Hoang Long !">
+
+                </TextView>
+
+
+            </androidx.cardview.widget.CardView>
+            <ImageButton
+                android:id="@+id/logoutButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:scaleType="fitXY"
+                android:src="@drawable/logout"
+                android:text="@string/logout"
+                android:contentDescription="@string/todo" />
+
+            />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:visibility="gone"
+            android:id="@+id/request_from"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/form_back"
+            >
+
+            <ImageView
+                android:scaleType="centerCrop"
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/eTitle"
+                android:layout_centerHorizontal="true"
+                android:text="@string/aaaaaaaaa"
+                android:src="@drawable/ciu"
+                />
+
+
+            <EditText
+                android:imeOptions="actionNext"
+
+                android:id="@+id/eTitle"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:layout_above="@+id/eDescription"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="35dp"
+                android:autofillHints=""
+                android:background="#fff"
+                android:drawableStart="@drawable/bookmark_border_24"
+                android:drawablePadding="10dp"
+                android:hint="@string/title"
+                android:inputType="textPersonName"
+
+                android:textSize="16sp" />
+
+            <EditText
+                android:imeOptions="actionNext"
+
+                android:id="@+id/eDescription"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:layout_alignStart="@+id/eTitle"
+                android:layout_alignBottom="@+id/ePhone"
+                android:layout_marginBottom="75dp"
+
+                android:autofillHints=""
+                android:background="#fff"
+                android:drawableStart="@drawable/description"
+                android:drawablePadding="10dp"
+                android:hint="@string/description"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:imeOptions="actionNext"
+                android:id="@+id/ePhone"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:layout_alignStart="@+id/eDescription"
+                android:layout_alignBottom="@+id/eLocation"
+                android:layout_marginBottom="75dp"
+
+                android:autofillHints=""
+                android:background="#fff"
+                android:drawableStart="@drawable/phonebook"
+                android:drawablePadding="10dp"
+                android:hint="@string/phone_number"
+                android:inputType="phone" />
+
+            <EditText
+                android:id="@+id/eLocation"
+                android:inputType="textPostalAddress"
+                android:imeOptions="actionDone"
+
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:layout_alignStart="@+id/ePhone"
+                android:layout_alignBottom="@+id/current_location"
+                android:layout_marginBottom="50dp"
+                android:autofillHints=""
+                android:background="#fff"
+                android:drawableStart="@drawable/location"
+                android:drawablePadding="10dp"
+                android:hint="@string/location"
+                />
+
+            <CheckBox
+                android:id="@+id/current_location"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/eLocation"
+                android:layout_alignBottom="@+id/s_emergency"
+                android:layout_marginBottom="30dp"
+                android:padding="20dp"
+                android:onClick="choose_current_location"
+                android:buttonTint="#8BC34A"
+                android:textSize="15sp"
+                android:textStyle="italic"
+                android:textColor="#8BC34A"
+                android:text="@string/choose_current_location" />
+            <TextView
+                android:layout_marginBottom="20dp"
+                android:drawableTint="#FF0606"
+                android:layout_width="250dp"
+                android:gravity="center"
+                android:textSize="15sp"
+                android:textColor="#FA0909"
+                android:text="@string/emergency_level"
+                android:id="@+id/static_emergency_text"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/current_location"
+                android:layout_alignBottom="@+id/s_emergency"
+                map:drawableBottomCompat="@drawable/ic_baseline_warning_24">
+            </TextView>
+
+            <Spinner
+
+                android:textAlignment="center"
+                android:padding="0dp"
+                android:layout_centerInParent="true"
+                android:id="@+id/s_emergency"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/error_from"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="20dp"
+                android:spinnerMode="dialog" />
+
+            <TextView
+                android:id="@+id/t_emergency"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/error_from"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/cardView"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="50dp"
+                android:gravity="center_horizontal"
+                android:text=""
+                android:textColor="#FF0202"
+                android:textStyle="italic"
+                android:visibility="visible" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_above="@+id/staticLayout"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="20dp"
+                app:cardBackgroundColor="@color/colorAccent"
+                app:cardCornerRadius="25dp"
+                app:cardElevation="10dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:onClick="saveMarker"
+                    android:background="#3F51B5">
+
+                    <TextView
+
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="@string/save"
+                        android:textColor="#fff"
+                        android:textSize="18sp" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView2"
+                android:layout_width="300dp"
+                android:layout_below="@id/cardView"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="20dp"
+                app:cardBackgroundColor="@color/colorAccent"
+                app:cardCornerRadius="25dp"
+                app:cardElevation="10dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#F44336">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/discard"
+                        android:textColor="#ffff"
+                        android:onClick="close_form"
+                        android:gravity="center"
+                        >
+
+                    </TextView>
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+            <TextView
+
+                android:id="@+id/staticLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/linearLayout"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="50dp"
+                android:text="@string/discard"
+                android:textColor="#fff"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_alignStart="@+id/imageView"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal">
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center" />
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <Button
+                    android:id="@+id/tennn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#3F51B5"
+
+                    android:onClick="saveMarker"
+                    android:text="@string/save"
+                    android:textColor="#fff" />
+
+                <Button
+                    android:id="@+id/elen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#EF1606"
+                    android:onClick="close_form"
+                    android:text="@string/cancel"
+                    android:textColor="#fff" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <include layout="@layout/detail_request"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
